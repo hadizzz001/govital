@@ -13,7 +13,7 @@ function Header() {
     <header>
       <div className="container">
         <a href="/" className="daherfoods" title="Govital">
-          <img alt="Govital" src="Content/images/daherfoods.png" />
+          <img alt="Govital" src="Content/images/daherfoods.png" style={{ width: '85%' }} />
         </a>
         <div className={`menuPop ${menuOpen ? 'open' : ''}`}>
           <nav id="menu" className={menuOpen ? 'fade' : ''}>
