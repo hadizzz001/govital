@@ -16,7 +16,7 @@ export default function Home() {
           {/* #endregion */}
           {/* #region Brands Slideshow */}
 
-          <div id="about"></div>
+          <div id="about" className="mb-20"></div>
           {/* #endregion */}
           {/* #region Story & Middle Banner */}
           <div className="Story" >
