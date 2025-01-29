@@ -47,10 +47,7 @@ const Footer = () => {
       </div>
  
     </div>
-    <div className="scrollUp">
-      <span />
-      Back to Top
-    </div>
+ 
   </footer>
   )
 }

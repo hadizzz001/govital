@@ -94,6 +94,7 @@ const BrandCarousel = () => {
                 width={150}
                 height={100}
                 priority={true}
+                id='brnddiv'
               />
             </div>
           ))
@@ -101,6 +102,14 @@ const BrandCarousel = () => {
           <p>Loading brands...</p>
         )}
       </Slider>
+
+      <style
+  dangerouslySetInnerHTML={{
+    __html:
+      "\n\n  @media screen and (max-width: 768px) {\n  #brnddiv {\n    margin-left: 8em;\n  }\n}\n"
+  }}
+/>
+
     </div>
   );
 };

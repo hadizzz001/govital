@@ -84,7 +84,7 @@ function Header() {
                   }}
                 >
                   {brands.map((brand) => (
-                    <li key={brand.name}>
+                    <li key={brand.name} style={{ marginBottom: "1em" }}>
                       <a
                         style={{ color: "white" }}
                         title={brand.name}
@@ -102,7 +102,7 @@ function Header() {
                         {subBrands
                           .filter((subBrand) => subBrand.brand === brand.name)
                           .map((subBrand) => (
-                            <li key={subBrand.name}>
+                            <li key={subBrand.name} >
                               <a
                                 style={{ color: "white" }}
                                 href={`/products?subbrnd=${subBrand.name}`} 
