@@ -33,19 +33,19 @@ export default function RootLayout({ children }) {
   <link
     rel="shortcut icon"
     type="image/x-icon"
-    href="content/images/favicon.ico"
+    href="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
   <link
     rel="icon"
     type="image/png"
     sizes="32x32"
-    href="http://daherfoods.com/content/images/favicon-32x32.png"
+    href="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
   <link
     rel="icon"
     type="image/png"
     sizes="16x16"
-    href="http://daherfoods.com/content/images/favicon-16x16.png"
+    href="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
   {/*#endregion */}
   <title>Govital</title>
@@ -66,14 +66,14 @@ export default function RootLayout({ children }) {
   />
   <meta
     itemProp="image"
-    content="http://kms.daherfoods.com/content/resizedimages/500/500/inside/161207095652995~logoDaher.png"
+    content="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
   {/*#endregion */}
   {/*#region  Facebook */}
   <meta property="og:title" content="Govital" />
   <meta
     property="og:image"
-    content="http://kms.daherfoods.com/content/resizedimages/500/500/inside/161207095652995~logoDaher.png"
+    content="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
   <meta property="og:image:width" content={500} />
   <meta property="og:image:height" content={500} />
@@ -94,16 +94,16 @@ export default function RootLayout({ children }) {
   />
   <meta
     name="twitter:image"
-    content="http://kms.daherfoods.com/content/resizedimages/500/500/inside/161207095652995~logoDaher.png"
+    content="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
   {/* Twitter summary card with large image must be at least 280x150px */}
   <meta
     name="twitter:image:src"
-    content="http://kms.daherfoods.com/content/resizedimages/500/500/inside/161207095652995~logoDaher.png"
+    content="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
   {/*#endregion */}
-  <link rel="canonical" href="index.html" />
-  <title>Index</title>
+  <link rel="canonical" href="/" />
+  <title>Govital</title>
   <link
     rel="stylesheet"
     href="content/css/daherFoods.css"

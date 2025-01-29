@@ -2,7 +2,7 @@ import Image from "next/image";
 import Header from "../app/_components/Header";
 import Footer from "../app/_components/Footer";
 import Carousel from "../app/_components/Carousel";
-import Brands from "../app/_components/Brands";
+import BrandCarousel from "../app/_components/BrandCarousel";
 
 export default function Home() {
   return (
@@ -158,7 +158,7 @@ export default function Home() {
             </div>
           </div>
 
-          <Brands/>
+          <BrandCarousel/>
 
         </div>
         <Footer />

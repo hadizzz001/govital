@@ -8,25 +8,16 @@ const Footer = () => {
       <ul className="options">
         <li>
           <a
-            href="https://www.facebook.com/daherfoods"
+            href="https://www.facebook.com/profile.php?id=61572533973860"
             target="_blank"
             title="Facebook"
           >
             <i className="fa fa-facebook" aria-hidden="true" />
           </a>
-        </li>
+        </li> 
         <li>
           <a
-            href="https://twitter.com/daherfoods"
-            target="_blank"
-            title="Twitter"
-          >
-            <i className="fa fa-twitter" aria-hidden="true" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.instagram.com/masterofficial/"
+            href="https://www.instagram.com/govital.lb"
             target="_blank"
             title="Instagram"
           >
@@ -39,7 +30,7 @@ const Footer = () => {
             target="_blank"
             title="Linkedin"
           >
-            <i className="fa fa-linkedin" aria-hidden="true" />
+            <i className="fa fa-tiktok" aria-hidden="true" />
           </a>
         </li>
       </ul>
