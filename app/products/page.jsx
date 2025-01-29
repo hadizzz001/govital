@@ -15,9 +15,9 @@ const Dashboard = ({ cat, brnd, subbrnd }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
   const [expandedCategories, setExpandedCategories] = useState({
-    Category: true,
-    subbrands: true,
-    Brands: true,
+    Category: false,
+    subbrands: false,
+    Brands: false,
   }); // Initialize with all categories expanded
   const [loading, setLoading] = useState(false);
   const [visibleItemsCount, setVisibleItemsCount] = useState(12);  // Number of items to show
