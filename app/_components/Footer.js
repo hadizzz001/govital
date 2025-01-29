@@ -26,11 +26,11 @@ const Footer = () => {
         </li>
         <li>
           <a
-            href="https://www.linkedin.com/company/daher-foods"
+            href="https://www.tiktok.com/@govital7"
             target="_blank"
             title="Linkedin"
           >
-            <i className="fa fa-tiktok" aria-hidden="true" />
+            <i class="fa-brands fa-tiktok"></i>
           </a>
         </li>
       </ul>

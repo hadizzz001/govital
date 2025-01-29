@@ -47,6 +47,8 @@ export default function RootLayout({ children }) {
     sizes="16x16"
     href="https://ucarecdn.com/1249b61c-dba5-4f12-8a75-daa1a4f6e1e8/logoy.png"
   />
+  <script src="https://kit.fontawesome.com/870a91dad4.js" crossorigin="anonymous"></script>
+  
   {/*#endregion */}
   <title>Govital</title>
   <meta
