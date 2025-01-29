@@ -130,7 +130,7 @@ function Header() {
             </ul>
           </nav>
         </div>
-        <div className="openMenu" onClick={toggleMenu}>
+        <div className="openMenu mr-5" onClick={toggleMenu}>
           <i className="fa fa-bars" aria-hidden="true" />
         </div>
         <div className="backMenu">
