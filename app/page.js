@@ -35,7 +35,7 @@ export default function Home() {
               className="photo"
               style={{
                 backgroundImage:
-                  'url("https://ucarecdn.com/670025f3-4485-4b85-8171-57da766117b9/back2.webp")'
+                  'url("https://res.cloudinary.com/dsamezukx/image/upload/v1740435942/vxzafbe5zhvloovr2tpo.webp")'
               }}
             >
               <div className="data">

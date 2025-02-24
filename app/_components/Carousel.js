@@ -16,13 +16,13 @@ const Carousel = () => {
   }, []);
 
   const desktopImages = [
-    "https://ucarecdn.com/1724aefd-9b9f-46d8-85d9-748b27c871f7/back.webp",
-    "https://ucarecdn.com/f41464f4-f24b-49eb-a27a-a32a0fe5a662/back1.webp",
+    "https://res.cloudinary.com/dsamezukx/image/upload/v1740435942/xzp8crv6ucoyahj1mydd.webp",
+    "https://res.cloudinary.com/dsamezukx/image/upload/v1740435942/gss1jjtca8q38e09alwj.webp",
   ];
 
   const mobileImages = [
-    "https://ucarecdn.com/84b0859c-ae14-4b75-a774-fd7f7def7847/001.webp",
-    "https://ucarecdn.com/170ffad6-e736-4edc-9aff-1b89c8cd196b/002.webp",
+    "https://res.cloudinary.com/dsamezukx/image/upload/v1740435942/ddosvz9xjygn8jryfsvz.webp",
+    "https://res.cloudinary.com/dsamezukx/image/upload/v1740435942/whknuym5ti5vbcolpa35.webp",
   ];
 
   const images = isMobile ? mobileImages : desktopImages;
@@ -46,7 +46,7 @@ const Carousel = () => {
         ...arrowStyle,
         left: "15px",
         backgroundImage:
-          "url('https://ucarecdn.com/20bbd477-9274-408f-8259-99c416b32f51/lefttrianglearrowiconinblackthinlineartvector.png')",
+          "url('https://res.cloudinary.com/dsamezukx/image/upload/v1740435942/fqva8hwlqmuc549gvzqm.png')",
       }}
       onClick={onClick}
     />
@@ -59,7 +59,7 @@ const Carousel = () => {
         right: "15px",
         transform: "translateY(-50%) rotate(180deg)", // Flip the arrow for the next button
         backgroundImage:
-          "url('https://ucarecdn.com/20bbd477-9274-408f-8259-99c416b32f51/lefttrianglearrowiconinblackthinlineartvector.png')",
+          "url('https://res.cloudinary.com/dsamezukx/image/upload/v1740435942/fqva8hwlqmuc549gvzqm.png')",
       }}
       onClick={onClick}
     />
