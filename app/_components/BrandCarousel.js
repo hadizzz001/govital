@@ -33,7 +33,7 @@ const BrandCarousel = () => {
     draggable: true,
     swipe: true,
     swipeToSlide: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     appendDots: (dots) => (
       <div style={{ marginTop: '20px' }}>
@@ -88,7 +88,7 @@ const BrandCarousel = () => {
               key={index}
               style={{ display: 'flex', height: '200px' }}
             >
-              <Image
+              <img
                 src={brand}
                 alt={`Brand ${index + 1}`}
                 width={150}

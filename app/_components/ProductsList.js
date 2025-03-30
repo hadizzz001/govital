@@ -12,26 +12,31 @@ const ProductsList = ({ subbrand }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!subbrand) return;
-
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`/api/products2/${subbrand}`);
+        const response = await fetch(`/api/products`);
         if (!response.ok) {
           throw new Error(`Error fetching products: ${response.statusText}`);
         }
         const data = await response.json();
-        setProducts(data);
+  
+        // Filter products based on subbrand if subbrand is provided
+        const filteredProducts = subbrand
+          ? data.filter(product => product.subbrand === subbrand)
+          : data;
+  
+        setProducts(filteredProducts);
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchProducts();
   }, [subbrand]);
+  
 
   if (loading) return <p>Loading products...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -53,8 +58,8 @@ const ProductsList = ({ subbrand }) => {
         className="product-slider"
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id}>
-            <Link href={`/product?id=${product.id}`} passHref>
+          <SwiperSlide key={product._id}>
+            <Link href={`/product?id=${product._id}`} passHref>
               <div className="cursor-pointer border p-4 transition relative">
                 <img
                   src={product.img?.[0] }

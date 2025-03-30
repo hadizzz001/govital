@@ -51,98 +51,52 @@ const Dashboard = ({ cat, brnd, subbrnd }) => {
   // Fetch based on "cat" parameter
   useEffect(() => {
     const fetchCategoryData = async () => {
-      if (cat) {
-        try {
-          setLoading(true);
-
-          const response = await fetch(`/api/products/${cat}`);
-          const data = await response.json();
-          console.log("code: ", response.status);
-          if (Array.isArray(data)) { 
-            if (response.status === 404) { 
-
-              // If no data is returned, display an empty message
-              setFilteredData([]);
-              setTotalItemsCount(0);
-            } else { 
-              setFilteredData(data);
-              setTotalItemsCount(data.length); // Set the total number of items for the category
-            }
-          } else {
-            setFilteredData([]);
-            setTotalItemsCount(0);
-            console.error("Expected an array, but got:", data);
-          }
-        } catch (error) {
-          console.error("Failed to fetch category data:", error);
-        } finally {
-          setLoading(false);
+      try {
+        setLoading(true);
+  
+        // Fetch all products, brands, and subbrands in parallel
+        const [productsRes, brandsRes, subbrandsRes] = await Promise.all([
+          fetch(`/api/products`),
+          fetch(`/api/brand`),
+          fetch(`/api/subbrand`)
+        ]);
+  
+        if (!productsRes.ok || !brandsRes.ok || !subbrandsRes.ok) {
+          throw new Error("Failed to fetch data");
         }
-      } 
-      else if (brnd) {
-        try {
-          setLoading(true);
-
-          const response = await fetch(`/api/brand/${brnd}`);
-          const data = await response.json(); 
-          if (Array.isArray(data)) { 
-            if (response.status === 404) { 
-
-              // If no data is returned, display an empty message
-              setFilteredData([]);
-              setTotalItemsCount(0);
-            } else { 
-              setFilteredData(data);
-              setTotalItemsCount(data.length); // Set the total number of items for the category
-            }
-          } else {
-            setFilteredData([]);
-            setTotalItemsCount(0);
-            console.error("Expected an array, but got:", data);
-          }
-        } catch (error) {
-          console.error("Failed to fetch category data:", error);
-        } finally {
-          setLoading(false);
+  
+        const [products, brands, subbrands] = await Promise.all([
+          productsRes.json(),
+          brandsRes.json(),
+          subbrandsRes.json()
+        ]);
+  
+        let filteredData = [];
+  
+        if (cat) {
+          filteredData = products.filter(product => product.category === cat);
+        } else if (brnd) {
+          filteredData = products.filter(product => product.brand === brnd);
+        } else if (subbrnd) {
+          filteredData = products.filter(product => product.subbrand === subbrnd);
+        } else {
+          filteredData = allTemp; // Fallback to allTemp if no filters are applied
         }
-      } 
-      else if (subbrnd) {
-        try {
-          setLoading(true);
-
-          const response = await fetch(`/api/subbrand/${subbrnd}`);
-          const data = await response.json(); 
-          if (Array.isArray(data)) { 
-            if (response.status === 404) { 
-
-              // If no data is returned, display an empty message
-              setFilteredData([]);
-              setTotalItemsCount(0);
-            } else { 
-              setFilteredData(data);
-              setTotalItemsCount(data.length); // Set the total number of items for the category
-            }
-          } else {
-            setFilteredData([]);
-            setTotalItemsCount(0);
-            console.error("Expected an array, but got:", data);
-          }
-        } catch (error) {
-          console.error("Failed to fetch category data:", error);
-        } finally {
-          setLoading(false);
-        }
-      } 
-      
-      else {
-        setFilteredData(allTemp); // If no `cat`, fallback to `allTemp`
-        setTotalItemsCount(allTemp.length); // Set the total number of items
+  
+        setFilteredData(filteredData);
+        setTotalItemsCount(filteredData.length);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+        setFilteredData([]);
+        setTotalItemsCount(0);
+      } finally {
+        setLoading(false);
       }
     };
+  
     fetchCategoryData();
-  }, [cat, allTemp]);
-
- 
+  }, [cat, brnd, subbrnd, allTemp]);
+  
 
  
 
@@ -311,7 +265,7 @@ const Dashboard = ({ cat, brnd, subbrnd }) => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {Array.isArray(filteredData) && filteredData.slice(0, visibleItemsCount).map((item, index) => (
-                <a href={`/product?id=${item.id}`} className="text-black hover:text-[#0b5cad] transition">
+                <a href={`/product?id=${item._id}`} className="text-black hover:text-[#0b5cad] transition">
                   <div key={index} className="p-4 border rounded-lg shadow-md hover:shadow-lg transition">
                     {item.img && (
                       <div className="relative">

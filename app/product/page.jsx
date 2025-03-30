@@ -20,17 +20,22 @@ const PageContent = ({ search }) => {
 
   const fetchProductData = async (id) => {
     try {
-      const response = await fetch(`/api/products1/${id}`);
+      const response = await fetch(`/api/products`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      return data;
+  
+      // Filter the product by ID
+      const product = data.find(product => product._id === id) || null;
+  
+      return product;
     } catch (error) {
       console.error(error);
       return null;
     }
   };
+  
 
   useEffect(() => {
     if (search) {
@@ -45,7 +50,7 @@ const PageContent = ({ search }) => {
   useEffect(() => {
     if (productData) {
       const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const exists = cart.some((item) => item.id === productData.id);
+      const exists = cart.some((item) => item._id === productData._id);
       setIsInCart(exists);
     }
   }, [productData]);
@@ -91,19 +96,19 @@ const PageContent = ({ search }) => {
   const updateCartQuantity = (id, qty) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const updatedCart = cart.map((item) =>
-      item.id === id ? { ...item, quantity: qty } : item
+      item._id === id ? { ...item, quantity: qty } : item
     );
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const addToCart = (product) => {
     const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (!currentCart.some((item) => item.id === product.id)) {
+    if (!currentCart.some((item) => item._id === product._id)) {
       currentCart.push({ ...product, quantity });
       localStorage.setItem("cart", JSON.stringify(currentCart));
       setIsInCart(true);
     } else {
-      updateCartQuantity(product.id, quantity);
+      updateCartQuantity(product._id, quantity);
     }
   };
 
@@ -111,7 +116,7 @@ const PageContent = ({ search }) => {
     setQuantity((prev) => {
       const newQty = type === "increase" ? prev + 1 : Math.max(prev - 1, 1);
       if (isInCart && productData) {
-        updateCartQuantity(productData.id, newQty);
+        updateCartQuantity(productData._id, newQty);
       }
       return newQty;
     });

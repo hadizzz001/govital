@@ -26,7 +26,7 @@ export default function Home() {
               </h2>
               <div className="text">
                 <div className="text">
-                Our journey began with a passion for great food and a vision to bring quality flavors to every table. Today, we craft delicious brands that people love and trust.
+                GOVITAL quickly gained recognition for its innovative approach to healthy food. Our baked chips, made with real ingredients and boasting 50% less fat than traditional alternatives, became a hit among health-conscious snackers. The introduction of protein cereals, healthy bites, and ChocoRice Snacks expanded our range, providing even more options for individuals and families seeking guilt-free indulgences. 
                 </div>
               </div>
 
